@@ -1,0 +1,26 @@
+<ion-view title="Login" id="page4">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input">
+                <input type="email" placeholder="Adresse e-mail" ng-model="client.Adresse">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Mot de passe" ng-model="client.Password">
+            </label>
+            {{client}}
+        </form>
+        <form class="list">
+            <ion-toggle toggle-class="toggle-calm" name="remember">Remember me</ion-toggle>
+        </form>
+        <a id="login-button1" style="border-radius:0px 0px 0px 0px;" class="button button-calm button-small button-block" ng-submit="login(client)">Login</a>
+
+
+        <a ui-sref="menu.conexion" id="login-button2" class="button button-calm button-small button-block button-outline">S'inscrire</a>
+       
+        <div>
+            <p>
+                <u>Mot de passe oublié</u>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,52 @@
+<ion-view ng-controller="rServationCtrl"  title="Réservation" id="page1" style="background-color:#FFFFFF;">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div id="rServation-markdown3" style="color:#000000;">
+            <p>Depart</p>
+        </div>
+        <form  class="list">
+            <label class="item item-select" name="lieu">
+                <span class="input-label">Lieu depart</span>
+                <select ng-model="data.lieu_prise">
+                    <option>Tunis</option>
+                    <option>sfax</option>
+                    <option>gafsa</option>
+                </select>
+            </label>
+            <label class="item item-input" name="date">
+                <input  ng-model="data.date_debut"  type="date" placeholder="">
+            </label>
+        </form>
+        <form class="list">
+            <label  class="item item-input">
+                <input ng-model="data.heure_debut" type="time" placeholder="">
+            </label>
+        </form>
+        <div id="rServation-markdown2" style="color:#000000;">
+            <p>Retour</p>
+        </div>
+        <form class="list">
+            <label class="item item-select" name="lieu1">
+                <span class="input-label">Lieu retour</span>
+                <select ng-model="data.lieu_retour">
+                    <option>Tunis</option>
+                    <option>sfax</option>
+                    <option>gafsa</option>
+                </select>
+            </label>
+            <label  class="item item-input" name="date1">
+                <input ng-model="data.date_fin" type="date" placeholder="">
+            </label>
+        </form>
+        <form class="list">
+            <label  class="item item-input">
+                <input ng-model="data.heure_retour" type="time" placeholder="">
+            </label>
+        </form>
+        <div style="margin-right:-20px;">
+            <a ng-click="valide(data)"
+             id="rServation-button6" style="left:-10px;text-align:right;" 
+                class="button button-calm button-small button-full">Voir les offres</a>
+        </div>
+        {{data}}
+    </ion-content>
+</ion-view>

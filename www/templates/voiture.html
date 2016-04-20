@@ -1,0 +1,79 @@
+<ion-view title="Voiture" id="page2" ng-controller="voitureCtrl">
+    
+    <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="query" placeholder="Search">
+        </label>
+       
+    </div>
+    <ion-content overflow-scroll="true" padding="true" class="has-subheader">
+          
+        <ion-list>
+            <ion-item ng-model="data" ng-click="getID(item)" ng-repeat='item in voitures[0] | filter: query' class="item-thumbnail-left"
+            ui-sref="menu.detailsVoiture({Id: item.idVoiture})">
+                <img src="img/{{item.photo}}.jpg" alt="">
+                <h2 >{{item.Modele.marque}} {{item.Modele.nom}}</h2>
+                <h3>{{item.categorie}}</h3>
+                <p>{{item.prixLocation}}</p>
+            </ion-item>
+        </ion-list>
+
+<!--<ion-item collection-repeat="voiture in voitures">
+
+ <a ui-sref="menu.detailsVoiture({Id: voiture.id})">
+
+ <img ng-src="img/{{voiture.photo }}" alt="image" >
+</a>
+
+</ion-item>-->
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!--    <a class="item" ng-repeat="voiture in VoituresData">
+                {{voiture}}
+                
+            </a>
+       <ion-list>
+           
+            <ion-item class="item-thumbnail-left" ui-sref="menu.detailsVoiture">
+               
+                <h2>Title</h2>
+                <p>Item</p>
+            </ion-item>
+            <ion-item class="item-thumbnail-left" ui-sref="menu.detailsVoiture" >
+               
+                <h2>Fiat Grande Punto</h2>
+                <p>louer à partir de 17 €</p>
+            </ion-item>
+            <ion-item class="item-thumbnail-left" ui-sref="menu.detailsVoiture">
+               
+                <h2>Title</h2>
+                <p>Item</p>
+            </ion-item>
+            <ion-item class="item-thumbnail-left" ui-sref="menu.detailsVoiture">
+                
+                <h2>Title</h2>
+                <p>Item</p>
+            </ion-item>
+        </ion-list>-->
+    </ion-content>
+</ion-view>
