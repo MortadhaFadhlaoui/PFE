@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.pfe703460" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>PFE</name>
+<widget id="com.ionicframework.sample374926" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>King Rent A Car</name>
   <description>
-        An Ionic Framework and Cordova project.
+        King Rent A Car project PFE.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="mortadhafadhlaoui@gmail.com" href="http://ionicframework.com/">
+      PFE
     </author>
+  <allow-navigation href="*"/>
+  <allow-navigation href="http://*/*"/>
+  <allow-navigation href="https://*/*"/>
+  <allow-navigation href="data:*"/>
+  <allow-navigation href="http://*/*"/>
+  <allow-navigation href="*"/>
+  <content src="index.html"/>
   <content src="index.html"/>
   <access origin="*"/>
+  <access origin="http://google.com"/>
+  <access origin="https://google.com"/>
+  <access origin="http://maps.google.com"/>
+  <access origin="http://*.google.com"/>
+  <access origin="content:///*"/>
+  <access origin="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="http://example.com/*"/>
+  <allow-intent href="*://*.example.com/*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="geo:*"/>
+  <allow-intent href="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>

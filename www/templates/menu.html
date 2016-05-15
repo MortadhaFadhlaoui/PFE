@@ -1,30 +1,48 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="true">
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-calm">
-            <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-bar class="bar-royal" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="left">
+            <ion-nav-back-button class="no-text">
+            </ion-nav-back-button>
             <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+                <button class="button button-icon button-clear ion-android-menu" menu-toggle="left">
+                </button>
             </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+    <button style="margin-top: 10px;margin-right: 13px;padding-right: 63px;" class="button icon-right ion-log-out button-center" ng-hide="loggedIn" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
         </ion-nav-bar>
-        <ion-nav-view name="side-menu21"></ion-nav-view>
+        <ion-nav-view name="fabContent"></ion-nav-view>
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}" ></ion-nav-view>
     </ion-side-menu-content>
-    <ion-side-menu side="left" id="side-menu21">
-        <ion-header-bar class="bar-calm">
-            <div class="title">Menu</div>
+    <ion-side-menu side="left">
+        <ion-header-bar class="expanded">
+            <span class="avatar motion spin fade" style="background: url('img/crown.png'); background-size: contain; background-repeat: no-repeat;"></span>
         </ion-header-bar>
-        <ion-content padding="false" class="side-menu-left has-header">
+        <ion-content class="stable-bg has-expanded-header">
             <ion-list>
-                <ion-item ui-sref="menu.rServation" menu-close=""  >
-                <i class="icon ion-home balanced ">Réservation</i>                            
+                <ion-item nav-clear menu-close ui-sref="app.reservation">
+                <i class="icon ion-search royal"></i>
+                    Réservation
                 </ion-item>
-                <ion-item ui-sref="menu.voiture" menu-close=""  >
-                 <i class="icon ion-model-s balanced">Voitures</i> 
+                <ion-item nav-clear menu-close ui-sref="app.friends">
+                  <i class="icon ion-model-s royal"></i>   
+                    Nos voiture
                 </ion-item>
-                <ion-item ui-sref="menu.paramTres" menu-close="" >
-                 <i class="icon ion-android-settings balanced">Paramètres</i> 
+                <ion-item nav-clear menu-close ui-sref="app.login" ng-show="loggedIn" ng-click="isLoggedIn()">
+                 <i class="icon ion-log-in royal"></i>   
+                    Login
                 </ion-item>
-                <ion-item ui-sref="menu.login" menu-close="" >
-                <i class="icon ion-log-in balanced">Login</i> 
+                <ion-item nav-clear menu-close ui-sref="app.profile" ng-hide="loggedIn" ng-click="isLoggedIn()">
+                 <i class="icon ion-person royal"></i>   
+                    Profile
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.LocationMap">
+                 <i class="icon ion-location royal"></i>   
+                    Localisation de l'agence
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.gallery">
+                 <i class="icon ion-information-circled royal"></i>   
+                    Que somme nous
                 </ion-item>
             </ion-list>
         </ion-content>

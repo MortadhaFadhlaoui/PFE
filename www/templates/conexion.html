@@ -1,37 +1,53 @@
-<ion-view title="Conexion" id="page6">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
-            <ion-list>
-                <label class="item item-input" name="Nom">
-                    <input type="text" placeholder="Nom">
-                </label>
-                <label class="item item-input" name="Prenom">
-                    <input type="text" placeholder="Prenom">
-                </label>
-            </ion-list>
-            <label class="item item-input" name="Password">
-                <input type="password" placeholder="Password">
-            </label>
-            <label class="item item-input" name="tel1">
-                <input type="tel" placeholder="Téléphone1">
-            </label>
-            <label class="item item-input" name="tel2">
-                <input type="tel" placeholder="Téléphone2">
-            </label>
-            <label class="item item-input" name="email">
-                <input type="email" placeholder="E-mail">
-            </label>
-            <label class="item item-input" name="numpermis">
-                <input type="text" placeholder="Numero de permis">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Date permis</span>
-                <input type="date" placeholder="">
-            </label>
-            <label class="item item-input" name="Adresse">
-                <input type="text" placeholder="Adresse">
-            </label>
-            <a ui-sref="menu.rServation" id="conexion-button7" class="button button-calm button-small button-block">Connexion</a>
-        </form>
+<ion-view view-title="S'inscrire">
+     <ion-content ng-class="{expanded:isExpanded}" class="background-image">
+       <div class="hero no-header flat">
+        <form name="myForm" novalidate>
+            <div class="list animate-fade-slide-in-right">
+               
+        
+            <ion-md-input placeholder="Username" ng-model="credentials.nom" highlight-color="balanced" type="text" name="username" ng-minlength="3" required></ion-md-input>
+              <div class="padding">
+              <p style="color:red;" ng-show="myForm.username.$error.required"><i class="ion-information-circled"></i> Username is required</p>
+            <p style="color:red;" ng-show="myForm.username.$error.minlength"><i class="ion-information-circled"></i> 
+                Username must be longer than 3 characters</p>
+            </div>
+            <ion-md-input placeholder="Prenom" ng-model="credentials.prenom" highlight-color="balanced" type="text" name="prenom" ng-minlength="3" required ></ion-md-input>
+              <div class="padding">
+             <p style="color:red;" ng-show="myForm.prenom.$error.required"><i class="ion-information-circled"></i> Lastname is required</p>
+            <p style="color:red;" ng-show="myForm.prenom.$error.minlength"><i class="ion-information-circled"></i> 
+                Lastname must be longer than 3 characters</p>
+            </div>
+            <ion-md-input type="password" placeholder="Password" ng-model="credentials.password" highlight-color="balanced"  name="password" ng-minlength="6" required></ion-md-input>
+                <div class="padding">
+            <p style="color:red;" ng-show="myForm.password.$error.required"><i class="ion-information-circled"></i> Password is required</p>
+            <p style="color:red;" ng-show="myForm.password.$error.minlength"><i class="ion-information-circled"></i> Password must be longer than 6 characters</p>
+        </div>
+              
+            <ion-md-input type="tel" placeholder="Téléphone" ng-model="credentials.numTel1" highlight-color="balanced" name="numTel"  ng-minlength="8" ng-maxlength="8" required></ion-md-input>
+                    <div class="padding">
+                    <p style="color:red;" ng-show="myForm.numTel.$invalid && !myForm.numTel.$pristine"><i class="ion-information-circled"></i> must be an valide number phone</p>
+</div>
+            <ion-md-input type="email" placeholder="E-mail" ng-model="credentials.email" highlight-color="balanced" name="usernamee" required></ion-md-input>
+             <div class="padding">
+          <p style="color:red;" ng-show="myForm.usernamee.$error.required"><i class="ion-information-circled"></i> E-mail is required</p>
+            <p style="color:red;" ng-show="myForm.usernamee.$invalid && !myForm.usernamee.$pristine"><i class="ion-information-circled"></i> E-mail must be an email address</p>
+          </div> 
+
+
+
+            <ion-md-input placeholder="Adresse" ng-model="credentials.adresse" highlight-color="balanced" type="text" name="adresse" required></ion-md-input>
+              <div class="padding">
+          <p style="color:red;" ng-show="myForm.adresse.$error.required"><i class="ion-information-circled"></i> Adresse is required</p>
+          </div> 
+            
+        </div>
+            {{credentials}}
+            <div class="padding">
+            <button ng-disabled="myForm.$invalid" ng-click="conexion(credentials)" class="button button-full button-calm ink">S'inscrire</button>
+        </div>
+    </form>
+        </div>
+        
     </ion-content>
 </ion-view>
+header_8.jpg

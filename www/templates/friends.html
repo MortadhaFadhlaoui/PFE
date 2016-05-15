@@ -1,0 +1,25 @@
+<ion-view view-title="Voitures">
+  
+    <ion-content lazy-scroll ng-class="{expanded:isExpanded}">
+     <div class="item-input-inset bar-light">
+        <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="query" placeholder="Search">
+        </label>
+
+    </div class="content has-header">
+
+        <div>
+            
+            <div>
+                <a class="item item-thumbnail-left item-icon-right" ng-repeat='item in voitures[0] | filter: query' ng-model="data" ng-click="getID(item)" ui-sref="app.detailsVoiture({Id: item.idVoiture})">
+                    <img image-lazy-src="img/{{item.photo}}.jpg" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="-20">
+                    <h2 class="border-top" style="color:blue;">{{item.Modele.marque}} {{item.Modele.nom}}</h2>
+                    <p >{{item.categorie}}</p>
+                    <i class="icon ion-pricetag energized-900">{{item.prixLocation}}</i>
+                </a>
+          
+        </div>
+    </div>
+    </ion-content>
+</ion-view>

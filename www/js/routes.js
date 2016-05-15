@@ -1,7 +1,11 @@
+
+
 angular.module('app.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
+// Turn off caching for demo simplicity's sake
+ $ionicConfigProvider.views.maxCache(0);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -11,7 +15,7 @@ angular.module('app.routes', [])
      .state('menu.rServation', {
     url: '/Réservation',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/rServation.html',
         controller: 'rServationCtrl'
       }
@@ -21,7 +25,7 @@ angular.module('app.routes', [])
   .state('menu.voiture', {
     url: '/Voiture',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/voiture.html',
         controller: 'voitureCtrl'
       }
@@ -31,17 +35,25 @@ angular.module('app.routes', [])
   .state('menu.paramTres', {
     url: '/Paramètres',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/paramTres.html',
         controller: 'paramTresCtrl'
       }
     }
   })
-
+  .state('menu.LocationMap', {
+    url: '/Location',
+    views: {
+      'fabContent': {
+        templateUrl: 'templates/Locationmap.html',
+        controller: 'LocationMapCtrl'
+      }
+    }
+  })
   .state('menu.login', {
     url: '/Login',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
       }
@@ -49,15 +61,16 @@ angular.module('app.routes', [])
   })
 
   .state('menu', {
-    url: '/side-menu21',
+    url: '/fabContent',
     templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl',
     abstract:true
   })
 
   .state('menu.detailsVoiture', {
     url: '/Voiture/:Id',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/detailsVoiture.html',
         controller: 'voitureCtrl'
       }
@@ -67,13 +80,31 @@ angular.module('app.routes', [])
   .state('menu.conexion', {
     url: '/Conexion',
     views: {
-      'side-menu21': {
+      'fabContent': {
         templateUrl: 'templates/conexion.html',
         controller: 'conexionCtrl'
       }
     }
   })
+  .state('menu.detailsPreReservation',{
+    url: '/DetailsPreReservation',
+    views: {
+      'fabContent': {
+        templateUrl: 'templates/detailsPreReservation.html',
+        controller: 'detailsPreReservationCtrl'
+      }
+    }
+  })
+  .state('menu.profile',{
+    url: '/profile',
+    views: {
+      'fabContent': {
+        templateUrl: 'templates/profil.html',
+        controller: 'profilCtrl'
+      }
+    }
+  })
 
-$urlRouterProvider.otherwise('/side-menu21/Réservation')
+$urlRouterProvider.otherwise('/fabContent/Réservation')
 
 });

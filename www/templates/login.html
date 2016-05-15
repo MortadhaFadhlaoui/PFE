@@ -1,26 +1,32 @@
-<ion-view title="Login" id="page4">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
-            <label class="item item-input">
-                <input type="email" placeholder="Adresse e-mail" ng-model="client.Adresse">
-            </label>
-            <label class="item item-input">
-                <input type="password" placeholder="Mot de passe" ng-model="client.Password">
-            </label>
-            {{client}}
-        </form>
-        <form class="list">
-            <ion-toggle toggle-class="toggle-calm" name="remember">Remember me</ion-toggle>
-        </form>
-        <a id="login-button1" style="border-radius:0px 0px 0px 0px;" class="button button-calm button-small button-block" ng-submit="login(client)">Login</a>
-
-
-        <a ui-sref="menu.conexion" id="login-button2" class="button button-calm button-small button-block button-outline">S'inscrire</a>
-       
-        <div>
-            <p>
-                <u>Mot de passe oublié</u>
-            </p>
+<ion-view view-title="Login" align-title="left">
+    <ion-content ng-class="{expanded:isExpanded}" class="background-image" >
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1>King Rent A Car</h1>
+            </div>
         </div>
+        <form name="myForm" novalidate>
+        <div class="list animate-fade-slide-in-right">
+          
+            <ion-md-input type="email" placeholder="Adresse E-mail" ng-model="client.email" highlight-color="balanced" name="username" ng-minlength="5" required ></ion-md-input>
+          <div class="padding">
+          <p style="color:red;" ng-show="myForm.username.$error.required"><i class="ion-information-circled"></i> E-mail is required</p>
+            <p style="color:red;" ng-show="myForm.username.$invalid && !myForm.username.$pristine"><i class="ion-information-circled"></i> E-mail must be an email address</p>
+          </div>    
+            <ion-md-input type="password" placeholder="Password" ng-model="client.password" highlight-color="energized" name="password" ng-minlength="6" required ></ion-md-input>
+        </div>
+        
+            <div class="padding">
+            <p style="color:red;" ng-show="myForm.password.$error.required"><i class="ion-information-circled"></i> Password is required</p>
+            <p style="color:red;" ng-show="myForm.password.$error.minlength"><i class="ion-information-circled"></i> Password must be longer than 6 characters</p>
+        </div>
+       
+        <div class="padding">
+            <button class="button button-full button-royal ink"  ng-disabled="myForm.$invalid" ng-click="login(client)" >Login</button>
+            <button ui-sref="app.conexion" class="button button-full button-royal button-outline ink">S'inscrire</button>
+        </div>
+        {{client}}
+    </form>
     </ion-content>
 </ion-view>

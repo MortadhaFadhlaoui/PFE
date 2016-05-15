@@ -1,26 +1,40 @@
-<ion-view title="Details voiture" id="page5" ng-controller="voitureCtrl">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list class="list-inset">
-            <ion-item ng-repeat="item in voitures[0] | filter:{idVoiture: witchvoitures}">
-             <img src="img/{{item.photo}}.jpg" alt="">
-                <h2 >{{item.Modele.marque}} {{item.Modele.nom}}</h2>
-                <h3>{{item.categorie}}</h3>
-                <p>{{item.prixLocation}}</p>
-        </ion-item>
+<ion-view view-title="Details voiture">  
+    <ion-content ng-class="{expanded:isExpanded}" >
+        <ion-list class="list-inset animate-fade-slide-in-right">
+            <ion-item class="item" ng-repeat="item in voitures[0] | filter:{idVoiture: witchvoitures}">
+             <img class="full-image" src="img/{{item.photo}}.jpg">
+                 <h2 class="border-top" style="color:blue;">{{item.Modele.marque}} {{item.Modele.nom}}</h2>
+                    <p >{{item.categorie}}</p>
+                    <i class="icon ion-pricetag energized-900">{{item.prixLocation}}</i>
+        
+        
+        
+            
+            </ion-item>
          </ion-list>
-       <!-- <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
-            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-        </div>-->
-        <div id="detailsVoiture-markdown4" style="color:#000000;">
-            <p>Terminé votre Reservation avec choix d'option :</p>
-        </div>
-        <form class="list" >
-            <ion-checkbox ng-model="data.GPS" name="GPS">GPS</ion-checkbox>
-            <ion-checkbox ng-model="data.chauffer" name="chauffer">Deuxième chauffeur</ion-checkbox>
-            <ion-checkbox ng-model="data.chaisebebe" name="chaisebebe">Chaise bebe</ion-checkbox>
+         <h4>Choix d'option:</h4>
+        <form class="list half animate-fade-slide-in-right" >
+            <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="data.GPS" ng-init="data.GPS=false"  name="GPS" >
+                    </label>
+                   GPS
+                </div>
+           <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="data.chauffer" ng-init="data.chauffer=false" name="chauffer">
+                    </label>
+                   Deuxième chauffeur
+                </div>
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="data.chaisebebe" ng-init="data.chaisebebe=false" name="chaisebebe">
+                    </label>
+                   Chaise bebe
+                </div>
         </form>
-        <div style="margin-right:-20px;">
-            <a ng-click="termine(data)" id="detailsVoiture-button8" style="left:-10px;text-align:right;" class="button button-calm button-small button-full">Termine</a>
+        <div>
+            <button ng-click="termine(data)" class="button button-full button-royal ink">Authentifier</button>
         </div>
     </ion-content>
 </ion-view>

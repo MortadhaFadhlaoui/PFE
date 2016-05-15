@@ -1,0 +1,176 @@
+<ion-view view-title="Reservation">
+
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+
+    <form name="myForm" novalidate>
+<div style="padding-right: 1em;" class="list card">
+   <a class="item" style="color:blue;font-size:25px">
+    Depart
+  </a>
+  <label class="item item-input item-icon-left item-select">
+                    <div style="margin-left: 3.30em;" class="input-label ">
+                      <i style="margin-left: 18px;" class="icon ion-location positive"></i>
+                        Lieu
+                    </div>
+                    <select ng-model="data.lieu_prise">
+                    <option selected value="">Selection votre depart</option>
+                    <option value="Tunis">Tunis</option> 
+                    <option value="Filand">Filand</option>
+                    <option value="Norland">Sweden</option>
+                    <option value="Norland">Norland</option>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Poland">Poland</option>
+                    </select>
+  </label>
+<div class="item item-input">
+                    <div class="item item-icon-left" ion-datetime-picker date ng-model="data.date_debut"required>
+                <i class="icon ion-calendar positive"></i>
+                Date:
+                <strong>{{data.date_debut| date: "yyyy-MM-dd"}}</strong>
+            </div>
+                  <div style="margin-left: 8em;" class="item item-icon-left" ion-datetime-picker time am-pm ng-model="data.heure_debut">
+                <i class="icon ion-clock positive"></i>
+                Time:
+                <strong>{{data.heure_debut| date: "H:mm a"}}</strong>
+            </div>        
+</div>
+</div>
+<div style="padding-right: 1em;" class="list card">
+   <a class="item" style="color:blue;font-size:25px">
+    Retour
+  </a>
+  <label class="item item-input item-icon-left item-select">
+                    <div style="margin-left: 3.30em;" class="input-label ">
+                      <i style="margin-left: 18px;" class="icon ion-location positive"></i>
+                        Lieu
+                    </div>
+                    <select ng-model="data.lieu_retour">
+                    <option selected value="">Selection votre Retour</option>
+                    <option selected value="Tunis">Tunis</option> 
+                    <option value="Filand">Gafsa</option>
+                    <option value="Norland">Sfax</option>
+                    </select>
+  </label>
+<div class="item item-input">
+                    <div class="item item-icon-left" ion-datetime-picker date ng-model="data.date_fin" >
+                <i class="icon ion-calendar positive"></i>
+                Date:
+                <strong>{{data.date_fin| date: "yyyy-MM-dd"}}</strong>
+            </div>
+                  <div style="margin-left: 8em;" class="item item-icon-left" ion-datetime-picker time am-pm ng-model="data.heure_fin">
+                <i class="icon ion-clock positive"></i>
+                Time:
+                <strong>{{data.heure_fin| date: "H:mm a"}}</strong>
+            </div>        
+</div>
+</div>
+
+   
+       <ion-toggle style="color:blue;font-size:20px;padding-left: 22px" ng-model='data.value'>25+age</ion-toggle>
+
+
+  <div class="padding">
+            <button ng-click="valide(data)" class="button button-full button-royal ink">Voir les offres</button>
+        </div>  
+</form>
+
+      <!--
+<div class="list card">
+
+  <a class="item" style="color:blue;">
+    Depart
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-location"></i>
+    <div class="row">
+  <div class="col col-33" >Lieu</div>
+  <label class="item item-input item-select">
+    <select ng-model="data.lieu_prise" data-form-required>
+                    <option selected value="">Tunis</option> 
+                    <option value="Filand">Filand</option>
+                    <option value="Norland">Sweden</option>
+                    <option value="Norland">Norland</option>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Poland">Poland</option>
+                    </select>
+  </label>
+</div>
+  </a>
+  <a class="item item-icon-left">
+    <i class="icon ion-calendar"></i>
+    <label class="item item-input">
+  <div class="col col-33" >Jour</div>
+  
+   
+<div classe="padding">
+  <input type="date" id="myDate" name="input" ng-model="data.date_debut"  placeholder="yyyy-MM-dd" required />
+   <p style="color:red;" ng-show="myForm.input.$error.required"><i class="ion-information-circled"></i>Required!</p>
+            <p style="color:red;" ng-show="myForm.input.$error.date"><i class="ion-information-circled"></i> 
+                Not a valid date!</p>
+              </div>
+  </label>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-clock"></i>
+   <div class="row">
+  <div class="col col-33" >Temps</div>
+  <div class="col col-33 col-offset-33">
+   <input ng-model="data.heure_debut" type="time" >
+  </div>
+</div>
+  </a>
+
+</div>
+<div class="list card">
+ <a class="item" style="color:blue;">
+    Retour
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-location"></i>
+    <div class="row">
+  <div class="col col-33" >Lieu</div>
+  <div class="col col-33 col-offset-33">
+    <select ng-model="data.lieu_retour" required>
+                        <option selected value="">Tunis</option>
+                        <option value="sfax">sfax</option>
+                        <option value="gafsa">gafsa</option>
+                    </select>
+  </div>
+</div>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-calendar"></i>
+    <div class="row">
+  <div class="col col-33" >Jour</div>
+  <div class="col col-33 col-offset-33">
+  <input  ng-model="data.date_fin"  type="date">
+  </div>
+</div>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-clock"></i>
+   <div class="row">
+  <div class="col col-33" >Temps</div>
+  <div class="col col-33 col-offset-33">
+   <input ng-model="data.heure_fin" type="time" >
+  </div>
+</div>
+  </a>
+
+
+</div>
+<div class="padding">
+            <button ng-click="valide(data)" class="button button-full button-calm ink">Voir les offres</button>
+        </div>
+        {{data}}
+      -->
+    {{data}}
+    </ion-content>
+</ion-view>
